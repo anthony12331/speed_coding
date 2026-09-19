@@ -1,6 +1,6 @@
 # 🎭 MOIST INTRAMURALS 2026-2027: 5-DEVELOPER STAGE ACT GUIDE
 
-This guide provides the exact file names and short, memorizable code snippets (10–12 lines each) for the 5 developers during the live speed coding performance.
+This guide provides the exact file names and short, memorizable code snippets (10 lines each) for all 5 developers during the live speed coding performance.
 
 ---
 
@@ -50,7 +50,7 @@ body { background: var(--bg); color: #fff; font-family: system-ui; }
 
 ---
 
-## 👤 Developer 3: Audio Synthesizer & Fireworks FX
+## 👤 Developer 3: Audio Synthesizer & FX
 - **File to create in VS Code**: `script.js`
 - **Code to memorize & type**:
 ```js
@@ -84,8 +84,22 @@ document.getElementById('open-btn').addEventListener('click', () => {
 ---
 
 ## 👤 Developer 5: Server Launcher & Presenter
-- **Action**: Opens VS Code terminal and runs:
+- **File to create in VS Code**: `server.js`
+- **Code to memorize & type (10 Lines)**:
+```js
+const http = require('http');
+const { handleRequest } = require('./node_modules/.cache/moist/engine.js');
+
+const PORT = 3000;
+
+const server = http.createServer((req, res) => {
+  handleRequest(req, res);
+});
+
+server.listen(PORT, () => console.log('🚀 MOIST Server live on port ' + PORT));
+```
+- **Terminal Action**: Opens VS Code terminal and runs:
 ```bash
-node node_modules/.cache/moist/server.js
+node server.js
 ```
 - **Result**: Launches the local server at `http://localhost:3000` and serves the full animated website!
