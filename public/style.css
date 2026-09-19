@@ -1,12 +1,202 @@
+/* ==========================================================================
+   MOIST INTRAMURALS 2026-2027 - PRE-BUILT HIDDEN ENGINE STYLES
+   ========================================================================== */
+
 :root {
-  --bg: #0f0206;
-  --gold: #ffd700;
-  --gold-grad: linear-gradient(135deg, #ffe066, #ffd700, #b8860b);
+  --bg-dark: #0f0206;
+  --bg-card: rgba(35, 6, 14, 0.88);
+  --primary-burgundy: #700014;
+  --primary-red: #cc002b;
+  --gold-glow: #ffd700;
+  --gold-gradient: linear-gradient(135deg, #ffe066 0%, #ffd700 50%, #b8860b 100%);
+  --text-white: #ffffff;
+  --text-muted: #e0b0b8;
+  --border-gold: rgba(255, 215, 0, 0.4);
+  --font-heading: 'Orbitron', sans-serif;
+  --font-body: 'Poppins', sans-serif;
 }
-body { background: var(--bg); color: #fff; font-family: system-ui; }
+
+* { box-sizing: border-box; margin: 0; padding: 0; -webkit-tap-highlight-color: transparent; }
+html, body { width: 100%; height: 100%; background-color: var(--bg-dark); color: var(--text-white); font-family: var(--font-body); overflow-x: hidden; position: relative; }
+
+#fx-canvas { position: fixed; top: 0; left: 0; width: 100vw; height: 100vh; z-index: 1; pointer-events: none; }
+
+.landing-overlay {
+  position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: 100;
+  background: radial-gradient(circle at center, #36020c 0%, #0f0206 100%);
+  display: flex; align-items: center; justify-content: center; padding: 20px;
+  transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.landing-overlay.fade-out { opacity: 0; transform: scale(1.15); pointer-events: none; }
+.landing-content { display: flex; flex-direction: column; align-items: center; text-align: center; max-width: 480px; width: 100%; }
+
+.school-badge {
+  display: flex; align-items: center; gap: 10px; background: rgba(255, 215, 0, 0.08);
+  border: 1px solid var(--border-gold); padding: 8px 16px; border-radius: 50px;
+  backdrop-filter: blur(10px); margin-bottom: 24px;
+}
+.mini-logo { width: 32px; height: 32px; border-radius: 50%; border: 1.5px solid var(--gold-glow); }
+.school-badge span { font-size: 0.7rem; font-weight: 700; letter-spacing: 0.8px; color: var(--gold-glow); }
+.teaser-heading { font-family: var(--font-heading); font-size: 1.05rem; letter-spacing: 2px; color: #fff; margin-bottom: 35px; text-shadow: 0 0 15px rgba(255, 0, 50, 0.5); }
+
+.open-btn-wrapper { position: relative; display: flex; align-items: center; justify-content: center; margin-bottom: 35px; }
+.pulse-ring {
+  position: absolute; width: 170px; height: 170px; border-radius: 50%; border: 2px solid var(--gold-glow);
+  animation: pulse-expand 2.2s infinite cubic-bezier(0.215, 0.61, 0.355, 1); opacity: 0;
+}
+.pulse-ring.delay-1 { animation-delay: 0.7s; }
+
+@keyframes pulse-expand { 0% { transform: scale(0.85); opacity: 0.9; } 100% { transform: scale(1.6); opacity: 0; } }
+
 .btn-open {
-  width: 140px; height: 140px; border-radius: 50%;
-  background: var(--gold-grad); border: 4px solid #fff;
-  color: #50000e; font-size: 1.8rem; font-weight: 900;
-  box-shadow: 0 0 35px var(--gold);
+  position: relative; z-index: 2; width: 150px; height: 150px; border-radius: 50%;
+  background: var(--gold-gradient); border: 4px solid #ffffff; outline: none; cursor: pointer;
+  box-shadow: 0 0 35px rgba(255, 215, 0, 0.6), inset 0 0 15px rgba(255, 255, 255, 0.8);
+  display: flex; flex-direction: column; align-items: center; justify-content: center;
+  transition: transform 0.2s ease, box-shadow 0.2s ease; animation: float-btn 3s ease-in-out infinite alternate;
+}
+@keyframes float-btn { 0% { transform: translateY(0px) scale(1); } 100% { transform: translateY(-8px) scale(1.03); } }
+.btn-open:active { transform: scale(0.92) !important; box-shadow: 0 0 50px rgba(255, 215, 0, 0.9); }
+
+.open-text { font-family: var(--font-heading); font-size: 1.8rem; font-weight: 900; color: #50000e; letter-spacing: 2px; line-height: 1; }
+.open-sub { font-size: 0.65rem; font-weight: 800; color: #700014; letter-spacing: 1px; margin-top: 4px; }
+.landing-hint { font-size: 0.82rem; color: var(--text-muted); letter-spacing: 0.5px; }
+
+.portal-container { position: relative; z-index: 10; min-height: 100vh; display: flex; align-items: center; justify-content: center; padding: 30px 16px; }
+.hidden { display: none !important; }
+
+.reveal-card {
+  background: var(--bg-card); border: 1.5px solid var(--border-gold); border-radius: 28px;
+  padding: 35px 24px; max-width: 580px; width: 100%; text-align: center;
+  backdrop-filter: blur(16px); box-shadow: 0 15px 40px rgba(0, 0, 0, 0.7);
+  animation: reveal-pop 0.9s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+@keyframes reveal-pop { 0% { transform: scale(0.7); opacity: 0; } 100% { transform: scale(1); opacity: 1; } }
+
+.logo-container { position: relative; display: inline-block; margin-bottom: 20px; }
+.hero-logo { width: 130px; height: 130px; border-radius: 50%; border: 4px solid var(--gold-glow); box-shadow: 0 0 35px rgba(255, 215, 0, 0.7); object-fit: cover; animation: logo-entrance 1.2s cubic-bezier(0.175, 0.885, 0.32, 1.275); }
+@keyframes logo-entrance { 0% { transform: scale(0.2) rotate(-180deg); opacity: 0; } 100% { transform: scale(1) rotate(0deg); opacity: 1; } }
+
+.logo-glow { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 170px; height: 170px; background: radial-gradient(circle, rgba(255,215,0,0.45) 0%, rgba(255,0,50,0) 70%); border-radius: 50%; pointer-events: none; }
+
+.institution-tag { font-size: 0.72rem; font-weight: 700; letter-spacing: 1.5px; color: var(--gold-glow); margin-bottom: 12px; text-transform: uppercase; }
+.main-title { font-family: var(--font-heading); font-size: 2.2rem; line-height: 1.1; font-weight: 900; margin-bottom: 15px; text-transform: uppercase; }
+.gold-text { color: var(--gold-glow); text-shadow: 0 0 15px rgba(255, 215, 0, 0.6); display: block; }
+.white-text { color: #ffffff; display: block; font-size: 1.8rem; }
+.gradient-year { background: linear-gradient(90deg, #ff3344, #ffd700, #ff3344); background-size: 200% auto; -webkit-background-clip: text; -webkit-text-fill-color: transparent; animation: shine 3s linear infinite; font-size: 2.4rem; display: block; }
+@keyframes shine { to { background-position: 200% center; } }
+
+.divider-gold { width: 80px; height: 3px; background: var(--gold-gradient); margin: 20px auto; border-radius: 10px; box-shadow: 0 0 10px var(--gold-glow); }
+.hero-tagline { font-size: 1.02rem; font-weight: 800; color: var(--gold-glow); margin-bottom: 20px; letter-spacing: 1px; }
+
+.announcement-box { background: rgba(0, 0, 0, 0.35); border: 1px solid rgba(255, 215, 0, 0.2); border-radius: 18px; padding: 16px; margin-bottom: 25px; text-align: center; }
+.announcement-text { font-size: 0.9rem; line-height: 1.5; color: #f0d0d8; }
+
+/* ==========================================================================
+   BSIT FREE TICKET BUTTON & QUESTION CARD
+   ========================================================================== */
+.ticket-action-area {
+  margin-bottom: 25px;
+}
+
+.btn-bsit-ticket {
+  width: 100%;
+  max-width: 380px;
+  padding: 16px 24px;
+  border-radius: 50px;
+  background: var(--gold-gradient);
+  border: 3px solid #ffffff;
+  color: #50000e;
+  font-family: var(--font-heading);
+  font-size: 1.1rem;
+  font-weight: 900;
+  letter-spacing: 1.5px;
+  cursor: pointer;
+  box-shadow: 0 0 30px rgba(255, 215, 0, 0.6);
+  transition: all 0.25s ease;
+  animation: pulse-glow 2s infinite alternate;
+}
+
+@keyframes pulse-glow {
+  0% { box-shadow: 0 0 20px rgba(255, 215, 0, 0.5); transform: scale(1); }
+  100% { box-shadow: 0 0 40px rgba(255, 215, 0, 0.9); transform: scale(1.03); }
+}
+
+.btn-bsit-ticket:active:not(:disabled) {
+  transform: scale(0.95);
+}
+
+.btn-bsit-ticket:disabled {
+  background: linear-gradient(135deg, #444, #222) !important;
+  color: #aaa !important;
+  border-color: #666 !important;
+  box-shadow: none !important;
+  cursor: not-allowed !important;
+  animation: none !important;
+  opacity: 0.85;
+}
+
+.ticket-status-count {
+  font-size: 0.8rem;
+  color: var(--text-muted);
+  font-weight: 600;
+  margin-top: 10px;
+}
+
+/* QUESTION CARD */
+.ticket-box {
+  background: linear-gradient(180deg, rgba(70, 4, 18, 0.95) 0%, rgba(20, 2, 6, 0.98) 100%);
+  border: 1.5px solid var(--gold-glow);
+  border-radius: 20px;
+  padding: 24px 18px;
+  margin-bottom: 25px;
+  text-align: center;
+  box-shadow: 0 0 30px rgba(255, 215, 0, 0.2);
+  animation: reveal-pop 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.ticket-box-title {
+  font-family: var(--font-heading);
+  font-size: 1.1rem;
+  color: var(--gold-glow);
+  margin-bottom: 16px;
+}
+
+.input-group { text-align: left; margin-bottom: 16px; }
+.input-label { display: block; font-size: 0.82rem; line-height: 1.45; color: #fff; margin-bottom: 8px; }
+.example-text { color: var(--gold-glow); font-size: 0.75rem; }
+
+.ticket-input {
+  width: 100%; padding: 12px 16px; border-radius: 12px;
+  background: rgba(0, 0, 0, 0.6); border: 1.5px solid var(--border-gold);
+  color: #fff; font-family: var(--font-body); font-size: 0.95rem; outline: none;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+.ticket-input:focus { border-color: var(--gold-glow); box-shadow: 0 0 15px rgba(255, 215, 0, 0.4); }
+
+.btn-claim {
+  width: 100%; padding: 14px 18px; border-radius: 50px;
+  background: var(--gold-gradient); border: 2px solid #ffffff;
+  color: #50000e; font-family: var(--font-heading); font-size: 0.95rem; font-weight: 900;
+  cursor: pointer; box-shadow: 0 0 20px rgba(255, 215, 0, 0.5); transition: all 0.2s ease;
+}
+.btn-claim:active { transform: scale(0.96); }
+
+.ticket-result-box { margin-top: 18px; padding: 16px; border-radius: 14px; animation: popIn 0.5s ease; }
+.ticket-success { background: rgba(0, 200, 83, 0.15); border: 1.5px solid #00c853; color: #b9f6ca; }
+
+.gold-ticket-code {
+  font-family: var(--font-heading); font-size: 1.8rem; font-weight: 900;
+  color: var(--gold-glow); letter-spacing: 2px; margin: 10px 0;
+  text-shadow: 0 0 15px var(--gold-glow); background: rgba(0, 0, 0, 0.5);
+  padding: 10px; border-radius: 10px; border: 1px dashed var(--gold-glow);
+}
+
+.ticket-error { background: rgba(255, 51, 68, 0.15); border: 1.5px solid #ff3344; color: #ff99a8; font-size: 0.85rem; }
+
+.footer-badge span { font-family: var(--font-heading); font-size: 0.72rem; font-weight: 800; color: var(--text-muted); letter-spacing: 1px; }
+
+@media (min-width: 600px) {
+  .main-title { font-size: 2.8rem; } .white-text { font-size: 2.2rem; } .gradient-year { font-size: 3rem; }
+  .reveal-card { padding: 45px 35px; } .btn-open { width: 170px; height: 170px; } .open-text { font-size: 2.2rem; }
 }
