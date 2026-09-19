@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>MOIST INTRAMURALS 2026-2027</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@600;800;900&family=Poppins:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- FX Particle & Firework Canvas -->
+  <canvas id="fx-canvas"></canvas>
+
+  <!-- STAGE 1: LANDING OVERLAY -->
+  <div id="landing-screen" class="landing-overlay">
+    <div class="landing-content">
+      <div class="school-badge">
+        <img src="logo.jpg" alt="MOIST Logo" class="mini-logo">
+        <span>MISAMIS ORIENTAL INSTITUTE OF SCIENCE AND TECHNOLOGY, INC.</span>
+      </div>
+      <div class="open-btn-wrapper">
+        <div class="pulse-ring"></div>
+        <div class="pulse-ring delay-1"></div>
+        <button id="open-btn" class="btn-open">
+          <span class="open-text">OPEN</span>
+          <span class="open-sub">TAP TO LAUNCH</span>
+        </button>
+      </div>
+      <p class="landing-hint">⚡ Press OPEN to launch MOIST Intramurals 2026-2027 ⚡</p>
+    </div>
+  </div>
+
+  <!-- STAGE 2: MAIN INTRAMURALS REVEAL -->
+  <main id="main-portal" class="portal-container hidden">
+    <div class="reveal-card">
+      <div class="logo-container">
+        <div class="logo-glow"></div>
+        <img src="logo.jpg" alt="MOIST Official Emblem" class="hero-logo">
+      </div>
+      
+      <div class="institution-tag">MISAMIS ORIENTAL INSTITUTE OF SCIENCE AND TECHNOLOGY, INC.</div>
+      
+      <h1 class="main-title">
+        <span class="gold-text">MOIST</span>
+        <span class="white-text">INTRAMURALS</span>
+        <span class="gradient-year">2026-2027</span>
+      </h1>
+      
+      <div class="divider-gold"></div>
+
+      <p class="hero-tagline">🔥 "IGNITE THE FLAME, CONQUER AS ONE!" 🔥</p>
+
+      <div class="announcement-box">
+        <p class="announcement-text">
+          Welcome to the official launch of <strong>MOIST Intramurals 2026-2027</strong>! 
+          A celebration of passion, sportsmanship, relentless determination, and unstoppable unity.
+        </p>
+      </div>
+
+      <!-- BSIT FREE TICKET INITIAL BUTTON -->
+      <div class="ticket-action-area">
+        <button id="bsit-ticket-btn" class="btn-bsit-ticket">
+          <span id="bsit-btn-text">🎟️ BSIT FREE TICKET</span>
+        </button>
+        <p class="ticket-status-count" id="ticket-status-count">Loading tickets availability...</p>
+      </div>
+
+      <!-- QUESTION FORM (HIDDEN UNTIL BSIT FREE TICKET BUTTON IS CLICKED) -->
+      <div id="question-card" class="ticket-box hidden">
+        <h3 class="ticket-box-title">🎟️ CLAIM YOUR BSIT FREE TICKET 🎟️</h3>
+        
+        <div class="input-group">
+          <label for="president-input" class="input-label">
+            📌 <strong>Note:</strong> Who is the President of MOIST? Enter First Name, Middle Name Initial, and Last Name.
+            <br><span class="example-text">(e.g. <em>Mark Anthony C. Digal</em> or <em>Mark Anthony C Digal</em>)</span>
+          </label>
+          <input type="text" id="president-input" class="ticket-input" placeholder="e.g. Mark Anthony C. Digal" autocomplete="off">
+        </div>
+
+        <button id="claim-btn" class="btn-claim">
+          <span id="claim-btn-text">SUBMIT ANSWER & CLAIM</span>
+        </button>
+
+        <div id="ticket-result" class="ticket-result-box hidden"></div>
+      </div>
+
+      <div class="footer-badge">
+        <span>🏆 BALINGASAG, MISAMIS ORIENTAL 🏆</span>
+      </div>
+    </div>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
