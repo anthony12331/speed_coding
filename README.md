@@ -1,10 +1,10 @@
 # 🎭 MOIST INTRAMURALS 2026-2027: 5-DEVELOPER STAGE ACT GUIDE
 
-This guide provides the exact file names and short, memorizable code snippets (10 lines each) for all 5 developers during the live speed coding performance.
+Every developer has their own **unique file name** and a short, 10-line memorizable code snippet!
 
 ---
 
-## 👤 Developer 1: HTML Structure
+## 👤 Developer 1: HTML Skeleton
 - **File to create in VS Code**: `index.html`
 - **Code to memorize & type**:
 ```html
@@ -23,14 +23,15 @@ This guide provides the exact file names and short, memorizable code snippets (1
     </div>
     <button id="open-btn" class="btn-open">OPEN</button>
   </div>
-  <script src="script.js"></script>
+  <script src="audio.js"></script>
+  <script src="app.js"></script>
 </body>
 </html>
 ```
 
 ---
 
-## 👤 Developer 2: CSS Styling & Button Glow
+## 👤 Developer 2: CSS Styles & Theme
 - **File to create in VS Code**: `style.css`
 - **Code to memorize & type**:
 ```css
@@ -50,8 +51,8 @@ body { background: var(--bg); color: #fff; font-family: system-ui; }
 
 ---
 
-## 👤 Developer 3: Audio Synthesizer & FX
-- **File to create in VS Code**: `script.js`
+## 👤 Developer 3: Audio Synthesizer
+- **File to create in VS Code**: `audio.js`
 - **Code to memorize & type**:
 ```js
 function playFanfare() {
@@ -68,8 +69,8 @@ function playFanfare() {
 
 ---
 
-## 👤 Developer 4: Portal Reveal Click Handler
-- **File to edit in VS Code**: `script.js` (append below Developer 3's code)
+## 👤 Developer 4: Portal Reveal Click Logic
+- **File to create in VS Code**: `app.js`
 - **Code to memorize & type**:
 ```js
 document.getElementById('open-btn').addEventListener('click', () => {
@@ -83,9 +84,9 @@ document.getElementById('open-btn').addEventListener('click', () => {
 
 ---
 
-## 👤 Developer 5: Server Launcher & Presenter
+## 👤 Developer 5: Server Launcher
 - **File to create in VS Code**: `server.js`
-- **Code to memorize & type (10 Lines)**:
+- **Code to memorize & type**:
 ```js
 const http = require('http');
 const { handleRequest } = require('./node_modules/.cache/moist/engine.js');
@@ -102,4 +103,3 @@ server.listen(PORT, () => console.log('🚀 MOIST Server live on port ' + PORT))
 ```bash
 node server.js
 ```
-- **Result**: Launches the local server at `http://localhost:3000` and serves the full animated website!
