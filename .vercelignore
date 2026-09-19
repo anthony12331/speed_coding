@@ -1,5 +1,0 @@
-# Tell Vercel to completely ignore the public act folder
-public/
-public/**
-stage_act/
-stage_act/**
