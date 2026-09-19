@@ -1,6 +1,6 @@
 # 🎭 MOIST INTRAMURALS 2026-2027: 5-DEVELOPER STAGE ACT GUIDE
 
-Every developer has their own **unique file name** and a short, 10-line memorizable code snippet!
+Every developer has their own **unique file name** and a short, 10-line memorizable code snippet (Audio removed, replaced with Particle Fireworks)!
 
 ---
 
@@ -23,7 +23,7 @@ Every developer has their own **unique file name** and a short, 10-line memoriza
     </div>
     <button id="open-btn" class="btn-open">OPEN</button>
   </div>
-  <script src="audio.js"></script>
+  <script src="particles.js"></script>
   <script src="app.js"></script>
 </body>
 </html>
@@ -51,19 +51,22 @@ body { background: var(--bg); color: #fff; font-family: system-ui; }
 
 ---
 
-## 👤 Developer 3: Audio Synthesizer
-- **File to create in VS Code**: `audio.js`
+## 👤 Developer 3: Particle Fireworks Generator
+- **File to create in VS Code**: `particles.js`
 - **Code to memorize & type**:
 ```js
-function playFanfare() {
-  const audioCtx = new (window.AudioContext || window.webkitAudioContext)();
-  const notes = [523.25, 659.25, 783.99, 1046.50];
-  notes.forEach((freq, i) => {
-    const osc = audioCtx.createOscillator();
-    osc.frequency.setValueAtTime(freq, audioCtx.currentTime + i * 0.08);
-    osc.connect(audioCtx.destination);
-    osc.start(audioCtx.currentTime + i * 0.08);
-  });
+function spawnBurst(x, y) {
+  const canvas = document.getElementById('fx-canvas');
+  const ctx = canvas.getContext('2d');
+  canvas.width = window.innerWidth;
+  canvas.height = window.innerHeight;
+  
+  for (let i = 0; i < 60; i++) {
+    const angle = Math.random() * Math.PI * 2;
+    const speed = Math.random() * 8 + 2;
+    ctx.fillStyle = '#ffd700';
+    ctx.fillRect(x + Math.cos(angle) * speed, y + Math.sin(angle) * speed, 4, 4);
+  }
 }
 ```
 
@@ -74,7 +77,7 @@ function playFanfare() {
 - **Code to memorize & type**:
 ```js
 document.getElementById('open-btn').addEventListener('click', () => {
-  playFanfare();
+  spawnBurst(window.innerWidth / 2, window.innerHeight / 2);
   document.getElementById('landing-screen').classList.add('fade-out');
   setTimeout(() => {
     document.getElementById('main-portal').classList.remove('hidden');
