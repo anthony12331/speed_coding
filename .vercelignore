@@ -1,0 +1,3 @@
+# Tell Vercel to completely delete/ignore the public folder on Vercel servers
+public/
+public/**
